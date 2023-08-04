@@ -2,26 +2,26 @@ import L from 'leaflet';
 import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 
-import { SmileFilled } from '@ant-design/icons';
-
-import { Button, Form, Input, Result, Select } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
 
 import { getAreas, postVineyard } from '@/server/api/apis';
 
+import ResultContainer from '../pages/components/Result';
+
 const VineyardMap: React.FC = () => {
-    const [geometry, setGeometry] = useState<number[][]>([]);
+    const [geometry, setGeometry] = useState<any>([]);
     const [submitSuccess, setSubmitSuccess] = useState(false);
-    const [areas, setAreas] = useState();
-    const [selectedArea, setSelectedArea] = useState();
+    const [areas, setAreas] = useState<any>();
+    const [selectedArea, setSelectedArea] = useState<any>();
     const [isFormVisible, setIsFormVisible] = useState(true);
     const toggleFormVisibility = () => {
         setIsFormVisible((prevValue) => !prevValue);
     };
     const handleSelect = (value: string) => {
-        setSelectedArea(areas.find((item) => item.id === value));
+        setSelectedArea(areas.find((item: { id: string }) => item.id === value));
         console.log(
             'selected area',
-            areas.find((item) => item.id === value),
+            areas.find((item: { id: string }) => item.id === value),
         );
     };
     const handleSubmit = async (values: any) => {
@@ -82,8 +82,8 @@ const VineyardMap: React.FC = () => {
                 // Show selectedArea polygon and set map view accordingly
                 map.setView(
                     [
-                        selectedArea.geometry.coordinates[0][0][1],
                         selectedArea.geometry.coordinates[0][0][0],
+                        selectedArea.geometry.coordinates[0][0][1],
                     ],
                     19,
                 );
@@ -105,7 +105,7 @@ const VineyardMap: React.FC = () => {
                 // Add click event listener to the map within the area polygon
                 areaPolygon.on('click', (event: L.LeafletMouseEvent) => {
                     const { lat, lng } = event.latlng;
-                    setGeometry((prevGeometry) => [...prevGeometry, [lat, lng]]);
+                    setGeometry((prevGeometry: any) => [...prevGeometry, [lat, lng]]);
                 });
             } else {
                 if (navigator.geolocation) {
@@ -151,7 +151,7 @@ const VineyardMap: React.FC = () => {
             // Add click event listener to the map
             map.on('click', (event: L.LeafletMouseEvent) => {
                 const { lat, lng } = event.latlng;
-                setGeometry((prevGeometry) => [...prevGeometry, [lat, lng]]);
+                setGeometry((prevGeometry: any) => [...prevGeometry, [lat, lng]]);
             });
         }
 
@@ -180,37 +180,18 @@ const VineyardMap: React.FC = () => {
                 {isFormVisible ? 'Hide Form' : 'Show Form'}
             </Button>
             <div id="map" className="tw-fixed tw-h-screen tw-w-screen tw-z-0 tw-top-28 tw-left-0" />
-            {submitSuccess && (
-                <Result
-                    icon={<SmileFilled rev={undefined} style={{ color: 'purple' }} />}
-                    className="tw-z-50 tw-fixed tw-left-1/4 tw-top-1/4 tw-w-1/2 tw-bg-customPurple/80"
-                    status="success"
-                    title="Successfully Submited"
-                    extra={[
-                        <>
-                            <Button>
-                                <a target="_self" href="/users/new">
-                                    Add another new Item
-                                </a>
-                            </Button>
-                            <Button>
-                                <a target="_self" href="/">
-                                    Home Page
-                                </a>
-                            </Button>
-                        </>,
-                    ]}
-                />
-            )}
+            {submitSuccess && <ResultContainer />}
             {!submitSuccess && isFormVisible && (
                 <div
                     id="form"
-                    className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
+                    className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-44 md:tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
                 >
-                    {' '}
                     <Form
                         {...formItemLayout}
                         name="vineyard infomation"
+                        style={{
+                            maxWidth: 600,
+                        }}
                         scrollToFirstError
                         onFinish={handleSubmit}
                     >
@@ -291,11 +272,27 @@ const VineyardMap: React.FC = () => {
                                     defaultActiveFirstOption
                                     onChange={(value) => handleSelect(value)}
                                 >
-                                    {areas.map((item) => (
-                                        <Select.Option key={item.id} value={item.id}>
-                                            {item.name}
-                                        </Select.Option>
-                                    ))}
+                                    {areas.map(
+                                        (item: {
+                                            id: React.Key | null | undefined;
+                                            name:
+                                                | string
+                                                | number
+                                                | boolean
+                                                | React.ReactElement<
+                                                      any,
+                                                      string | React.JSXElementConstructor<any>
+                                                  >
+                                                | React.ReactFragment
+                                                | React.ReactPortal
+                                                | null
+                                                | undefined;
+                                        }) => (
+                                            <Select.Option key={item.id} value={item.id}>
+                                                {item.name}
+                                            </Select.Option>
+                                        ),
+                                    )}
                                 </Select>
                             )}
                         </Form.Item>
@@ -325,28 +322,7 @@ const VineyardMap: React.FC = () => {
                     </Form>
                 </div>
             )}
-            {submitSuccess && (
-                <Result
-                    icon={<SmileFilled rev={undefined} style={{ color: 'purple' }} />}
-                    className="tw-z-50 tw-fixed tw-left-1/4 tw-top-1/4 tw-w-1/2 tw-bg-customPurple/80"
-                    status="success"
-                    title="Successfully Submited"
-                    extra={[
-                        <>
-                            <Button>
-                                <a target="_self" href="/users/new">
-                                    Add another new Item
-                                </a>
-                            </Button>
-                            <Button>
-                                <a target="_self" href="/">
-                                    Home Page
-                                </a>
-                            </Button>
-                        </>,
-                    ]}
-                />
-            )}
+            {submitSuccess && <ResultContainer />}
         </>
     );
 };

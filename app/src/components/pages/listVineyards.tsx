@@ -1,17 +1,19 @@
-import Header, { Theme } from '../header';
-import MarksVineyards from '../map/DisplayVineyards';
+import ListVineyards from '../map/ListVineyard';
 
-const ListVineyards = () => {
+import ListVineyardsAsAgronomist from './Agronomists/AgoDisplayVineyards';
+
+const ListVineyardByRoles = () => {
+    const role = localStorage.getItem('role');
     return (
         <>
-            <Theme>
-                <div className="tw-h-full">
-                    <Header />
-                    <MarksVineyards />
+            {role === 'admin' || role === 'agronomists' ? (
+                <ListVineyardsAsAgronomist />
+            ) : (
+                <div id="form" className="tw-overflow-y-scroll">
+                    <ListVineyards />
                 </div>
-            </Theme>
+            )}
         </>
     );
 };
-
-export default ListVineyards;
+export default ListVineyardByRoles;

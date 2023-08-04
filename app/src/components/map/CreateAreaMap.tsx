@@ -1,14 +1,14 @@
 import L from 'leaflet';
 import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { Button, Form, Input, Result } from 'antd';
-
-import { SmileFilled } from '@ant-design/icons';
+import { Button, Form, Input } from 'antd';
 
 import { createArea } from '@/server/api/apis';
 
+import ResultContainer from '../pages/components/Result';
+
 const AreaMap: React.FC = () => {
-    const [geometry, setGeometry] = useState<number[][]>([]);
+    const [geometry, setGeometry] = useState<any>([]);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [isFormVisible, setIsFormVisible] = useState(true);
     const toggleFormVisibility = () => {
@@ -74,7 +74,7 @@ const AreaMap: React.FC = () => {
             // Add click event listener to the map
             map.on('click', (event: L.LeafletMouseEvent) => {
                 const { lat, lng } = event.latlng;
-                setGeometry((prevGeometry) => [...prevGeometry, [lat, lng]]);
+                setGeometry((prevGeometry: any) => [...prevGeometry, [lat, lng]]);
             });
         }
 
@@ -104,7 +104,7 @@ const AreaMap: React.FC = () => {
             {!submitSuccess && isFormVisible && (
                 <div
                     id="form"
-                    className="tw-container tw-bg-customPurple/70 tw-rounded-xl hover:tw-bg-customPurple tw-w-1/3 tw-left-2 tw-fixed tw-text-white tw-top-1/4 tw-py-10 tw-px-4"
+                    className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-44 md:tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
                 >
                     <Form onFinish={handleSubmit}>
                         <Form.Item
@@ -149,28 +149,7 @@ const AreaMap: React.FC = () => {
                     </Form>
                 </div>
             )}
-            {submitSuccess && (
-                <Result
-                    icon={<SmileFilled rev={undefined} style={{ color: 'purple' }} />}
-                    className="tw-z-50 tw-fixed tw-left-1/4 tw-top-1/4 tw-w-1/2 tw-bg-customPurple/80"
-                    status="success"
-                    title="Successfully Submited"
-                    extra={[
-                        <>
-                            <Button>
-                                <a target="_self" href="/users/new">
-                                    Add another new Item
-                                </a>
-                            </Button>
-                            <Button>
-                                <a target="_self" href="/">
-                                    Home Page
-                                </a>
-                            </Button>
-                        </>,
-                    ]}
-                />
-            )}
+            {submitSuccess && <ResultContainer />}
         </>
     );
 };

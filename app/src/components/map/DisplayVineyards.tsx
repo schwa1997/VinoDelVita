@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react';
 
 import { getAllVineyardsByUserID } from '@/server/api/apis';
 
-const MarksVineyards: React.FC = () => {
-    const [vineyards, setVineyards] = useState([]);
-    const [allvineyards, setAllVineyards] = useState([]);
+const DisplayVineyards: React.FC = () => {
+    const [vineyards, setVineyards] = useState<any>();
+    const [allvineyards, setAllVineyards] = useState<any>();
     const [selectedVineyard, setSelectedVineyard] = useState(null);
     const [vineyardPolygons, setVineyardPolygons] = useState<L.Polygon[]>([]);
-    const [disease, setDisease] = useState('');
-    const [status, setStatus] = useState('');
+    const [disease, setDisease] = useState<any>();
+    const [status, setStatus] = useState<any>();
     const handleDiseaseChange = (value: string) => {
         setDisease(value);
-        const filteredVineyards = allvineyards.filter((vineyard) =>
+        const filteredVineyards = allvineyards.filter((vineyard: { reports: any[] }) =>
             vineyard.reports.some((report) => report.disease === value),
         );
         setVineyards(filteredVineyards);
@@ -21,7 +21,7 @@ const MarksVineyards: React.FC = () => {
     const handleStatusChange = (value: any) => {
         console.log(value);
         setStatus(value);
-        const filteredVineyards = allvineyards.filter((vineyard) =>
+        const filteredVineyards = allvineyards.filter((vineyard: { reports: any[] }) =>
             vineyard.reports.some((report) => report.status === value),
         );
         console.log(filteredVineyards);
@@ -34,9 +34,7 @@ const MarksVineyards: React.FC = () => {
     }, []);
 
     const handleVineyardChange = (value: string) => {
-        const selectedVineyard = allvineyards.find((item) => item.id === value);
-        console.log(selectedVineyard);
-        setSelectedVineyard(selectedVineyard);
+        setSelectedVineyard(allvineyards.find((item: { id: string }) => item.id === value));
     };
 
     useEffect(() => {
@@ -49,13 +47,22 @@ const MarksVineyards: React.FC = () => {
                 map = L.map('map').setView([coordinates[0], coordinates[1]], 19);
                 console.log(coordinates[1], coordinates[0]);
 
-                const polygons: L.Polygon[] = vineyards.map((vineyard) =>
-                    L.polygon(vineyard.geometry.coordinates[0], {
-                        color: 'purple',
-                        weight: 3,
-                        fillColor: 'pink',
-                        fillOpacity: 0.4,
-                    }).addTo(map!),
+                const polygons: L.Polygon[] = vineyards.map(
+                    (vineyard: {
+                        geometry: {
+                            coordinates: (
+                                | L.LatLngExpression[]
+                                | L.LatLngExpression[][]
+                                | L.LatLngExpression[][][]
+                            )[];
+                        };
+                    }) =>
+                        L.polygon(vineyard.geometry.coordinates[0], {
+                            color: 'purple',
+                            weight: 3,
+                            fillColor: 'pink',
+                            fillOpacity: 0.4,
+                        }).addTo(map!),
                 );
 
                 setVineyardPolygons(polygons);
@@ -118,16 +125,50 @@ const MarksVineyards: React.FC = () => {
                                     placeholder="Select a vineyard"
                                 >
                                     {vineyards
-                                        ? vineyards.map((item) => (
-                                              <Select.Option key={item.id} value={item.id}>
-                                                  {item.name}
-                                              </Select.Option>
-                                          ))
-                                        : allvineyards.map((item) => (
-                                              <Select.Option key={item.id} value={item.id}>
-                                                  {item.name}
-                                              </Select.Option>
-                                          ))}
+                                        ? vineyards.map(
+                                              (item: {
+                                                  id: React.Key | null | undefined;
+                                                  name:
+                                                      | string
+                                                      | number
+                                                      | boolean
+                                                      | React.ReactElement<
+                                                            any,
+                                                            | string
+                                                            | React.JSXElementConstructor<any>
+                                                        >
+                                                      | React.ReactFragment
+                                                      | React.ReactPortal
+                                                      | null
+                                                      | undefined;
+                                              }) => (
+                                                  <Select.Option key={item.id} value={item.id}>
+                                                      {item.name}
+                                                  </Select.Option>
+                                              ),
+                                          )
+                                        : allvineyards.map(
+                                              (item: {
+                                                  id: React.Key | null | undefined;
+                                                  name:
+                                                      | string
+                                                      | number
+                                                      | boolean
+                                                      | React.ReactElement<
+                                                            any,
+                                                            | string
+                                                            | React.JSXElementConstructor<any>
+                                                        >
+                                                      | React.ReactFragment
+                                                      | React.ReactPortal
+                                                      | null
+                                                      | undefined;
+                                              }) => (
+                                                  <Select.Option key={item.id} value={item.id}>
+                                                      {item.name}
+                                                  </Select.Option>
+                                              ),
+                                          )}
                                 </Select>
                             </Form.Item>
 
@@ -136,13 +177,13 @@ const MarksVineyards: React.FC = () => {
                                     <p>
                                         <strong>Disease Type:</strong>{' '}
                                         {selectedVineyard.reports
-                                            .map((item) => item.disease)
+                                            .map((item: { disease: any }) => item.disease)
                                             .join(', ')}
                                     </p>
                                     <p>
                                         <strong>UpdatedAt:</strong>{' '}
                                         {selectedVineyard.reports
-                                            .map((item) => item.updatedAt)
+                                            .map((item: { updatedAt: any }) => item.updatedAt)
                                             .join(', ')}
                                     </p>
                                 </div>
@@ -181,16 +222,50 @@ const MarksVineyards: React.FC = () => {
                                     placeholder="Select a vineyard"
                                 >
                                     {vineyards
-                                        ? vineyards.map((item) => (
-                                              <Select.Option key={item.id} value={item.id}>
-                                                  {item.name}
-                                              </Select.Option>
-                                          ))
-                                        : allvineyards.map((item) => (
-                                              <Select.Option key={item.id} value={item.id}>
-                                                  {item.name}
-                                              </Select.Option>
-                                          ))}
+                                        ? vineyards.map(
+                                              (item: {
+                                                  id: React.Key | null | undefined;
+                                                  name:
+                                                      | string
+                                                      | number
+                                                      | boolean
+                                                      | React.ReactElement<
+                                                            any,
+                                                            | string
+                                                            | React.JSXElementConstructor<any>
+                                                        >
+                                                      | React.ReactFragment
+                                                      | React.ReactPortal
+                                                      | null
+                                                      | undefined;
+                                              }) => (
+                                                  <Select.Option key={item.id} value={item.id}>
+                                                      {item.name}
+                                                  </Select.Option>
+                                              ),
+                                          )
+                                        : allvineyards.map(
+                                              (item: {
+                                                  id: React.Key | null | undefined;
+                                                  name:
+                                                      | string
+                                                      | number
+                                                      | boolean
+                                                      | React.ReactElement<
+                                                            any,
+                                                            | string
+                                                            | React.JSXElementConstructor<any>
+                                                        >
+                                                      | React.ReactFragment
+                                                      | React.ReactPortal
+                                                      | null
+                                                      | undefined;
+                                              }) => (
+                                                  <Select.Option key={item.id} value={item.id}>
+                                                      {item.name}
+                                                  </Select.Option>
+                                              ),
+                                          )}
                                 </Select>
                             </Form.Item>
 
@@ -199,14 +274,14 @@ const MarksVineyards: React.FC = () => {
                                     <p>
                                         <strong>Intervention:</strong>{' '}
                                         {selectedVineyard.interventions
-                                            .map((item) => item.type)
+                                            .map((item: { type: any }) => item.type)
                                             .join(', ')}
                                     </p>
                                     {status && (
                                         <p>
                                             <strong>Status:</strong>{' '}
                                             {selectedVineyard.reports
-                                                .map((item) => item.status)
+                                                .map((item: { status: any }) => item.status)
                                                 .join(', ')}
                                         </p>
                                     )}
@@ -220,4 +295,4 @@ const MarksVineyards: React.FC = () => {
     );
 };
 
-export default MarksVineyards;
+export default DisplayVineyards;

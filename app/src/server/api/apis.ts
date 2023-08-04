@@ -1,7 +1,20 @@
 import { commonRequest } from './axios';
 // report api
-export async function getAllReports() {
-    const response = await commonRequest.get('/reports');
+export async function getAllReportsAsAdmin(orderBy: string, vineyard: string, page: number) {
+    const jwtToken = localStorage.getItem('jwtToken');
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`,
+    };
+    if (vineyard) {
+        console.log('use vineyard');
+        const response = await commonRequest.get(
+            `/reports?orderBy=${orderBy}&vineyard=${vineyard}&page=${page}`,
+            { headers },
+        );
+        return response.data;
+    }
+    const response = await commonRequest.get('/reports?orderBy=createdAt', { headers });
     return response.data;
 }
 
@@ -33,7 +46,12 @@ export async function getReportByID(id: string) {
 }
 
 export async function deleteReortByID(id: string) {
-    const response = await commonRequest.delete(`/reports/${id}`);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`,
+    };
+    const response = await commonRequest.delete(`/reports/${id}`, { headers });
     return response.data;
 }
 
@@ -77,21 +95,29 @@ export async function updateReport(
     title: string,
     disease: string,
     description: string,
-    longitude: string,
-    latitude: string,
-    company: string,
     area: string,
+    vineyard: string,
+    status: string,
 ) {
-    const response = await commonRequest.patch('/reports', {
-        id,
-        title,
-        disease,
-        description,
-        longitude,
-        latitude,
-        company,
-        area,
-    });
+    console.log(id, title, disease, description, area, vineyard, status);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`,
+    };
+    const response = await commonRequest.patch(
+        '/reports',
+        {
+            id,
+            title,
+            disease,
+            description,
+            area,
+            vineyard,
+            status,
+        },
+        { headers },
+    );
     return response.data;
 }
 // area api
@@ -151,6 +177,42 @@ export async function updateArea(id: string, name: string, code: string, geometr
         const response = await commonRequest.patch(
             '/areas/update',
             { id, name, code, geometry },
+            { headers },
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error updating area:', error);
+        throw error;
+    }
+}
+export async function updateCompanyPSW(password: string) {
+    const jwtToken = localStorage.getItem('jwtToken'); // Get the JWT token from the local storage.
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`, // Set the Authorization header with the JWT token.
+    };
+    try {
+        const response = await commonRequest.patch(
+            '/companies/update/password',
+            { password },
+            { headers },
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error updating area:', error);
+        throw error;
+    }
+}
+export async function confirmPSW(password: string) {
+    const jwtToken = localStorage.getItem('jwtToken'); // Get the JWT token from the local storage.
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`, // Set the Authorization header with the JWT token.
+    };
+    try {
+        const response = await commonRequest.post(
+            '/companies/update/confirmpassword',
+            { password },
             { headers },
         );
         return response.data;
@@ -351,11 +413,11 @@ export async function updateVineyard(
                 geometry,
             },
             { headers },
-        ); // Make the HTTP PUT request to update the area.
-        return response.data; // Return the data received from the server (updated area).
+        );
+        return response.data;
     } catch (error) {
         console.error('Error updating area:', error);
-        throw error; // Rethrow the error to handle it at the caller's end.
+        throw error;
     }
 }
 // company api
@@ -366,7 +428,12 @@ export async function getAllCompanies() {
 }
 
 export async function getCompanyByID(id: string) {
-    const response = await commonRequest.get(`/companies/${id}`);
+    const jwtToken = localStorage.getItem('jwtToken'); // Get the JWT token from the local storage.
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`, // Set the Authorization header with the JWT token.
+    };
+    const response = await commonRequest.get(`/companies/${id}`, { headers });
     return response.data;
 }
 
@@ -410,13 +477,22 @@ export async function updateCompany(
     phone: string,
     password: string,
 ) {
-    const response = await commonRequest.patch('/companies', {
-        id,
-        companyName,
-        email,
-        phone,
-        password,
-    });
+    const jwtToken = localStorage.getItem('jwtToken'); // Get the JWT token from the local storage.
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`, // Set the Authorization header with the JWT token.
+    };
+    const response = await commonRequest.patch(
+        '/companies/update',
+        {
+            id,
+            companyName,
+            email,
+            phone,
+            password,
+        },
+        { headers },
+    );
     return response.data;
 }
 export async function getInterventionsAsAgronomists() {

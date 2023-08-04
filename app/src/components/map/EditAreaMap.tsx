@@ -1,11 +1,11 @@
 import L from 'leaflet';
 import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { Button, Form, Input, Result, Select } from 'antd';
-
-import { SmileFilled } from '@ant-design/icons';
+import { Button, Form, Input, Select } from 'antd';
 
 import { deleteAreaByID, getAreaByID, getAreas, updateArea } from '@/server/api/apis';
+
+import ResultContainer from '../pages/components/Result';
 
 const formItemLayout = {
     labelCol: {
@@ -26,10 +26,10 @@ const formItemLayout = {
     },
 };
 const EditAreaMap: React.FC = () => {
-    const [areas, setAreas] = useState();
+    const [areas, setAreas] = useState<any>();
     const [edit, setEdit] = useState(false);
-    const [currentArea, setCurrentArea] = useState();
-    const [geometry, setGeometry] = useState<number[][]>([]);
+    const [currentArea, setCurrentArea] = useState<any>();
+    const [geometry, setGeometry] = useState<any>();
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [isFormVisible, setIsFormVisible] = useState(true);
     const toggleFormVisibility = () => {
@@ -87,6 +87,7 @@ const EditAreaMap: React.FC = () => {
     useEffect(() => {
         getAreas().then((res) => {
             setAreas(res);
+            console.log(res[0].geometry);
         });
     }, []);
 
@@ -94,7 +95,7 @@ const EditAreaMap: React.FC = () => {
         let map: L.Map | null = null;
         let areaPolygon: L.Polygon | null = null;
         console.log('geometry', geometry);
-        if (!map && geometry.coordinates && geometry.coordinates.length > 0) {
+        if (!map && geometry && geometry.coordinates && geometry.coordinates.length > 0) {
             console.log(
                 'geometry',
                 geometry,
@@ -149,9 +150,8 @@ const EditAreaMap: React.FC = () => {
             {!submitSuccess && isFormVisible && (
                 <div
                     id="form"
-                    className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
+                    className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-44 md:tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
                 >
-                    {' '}
                     <Form
                         {...formItemLayout}
                         name="vineyard infomation"
@@ -163,7 +163,7 @@ const EditAreaMap: React.FC = () => {
                     >
                         <Form.Item
                             name="Select Area"
-                            label="Select Area"
+                            label="Area"
                             rules={[
                                 {
                                     required: true,
@@ -178,16 +178,32 @@ const EditAreaMap: React.FC = () => {
                                     onChange={(value) => handleAreaOption(value)}
                                     defaultActiveFirstOption
                                 >
-                                    {areas.map((item) => (
-                                        <Select.Option key={item.id} value={item.id}>
-                                            {item.name}
-                                        </Select.Option>
-                                    ))}
+                                    {areas.map(
+                                        (item: {
+                                            id: React.Key | null | undefined;
+                                            name:
+                                                | string
+                                                | number
+                                                | boolean
+                                                | React.ReactElement<
+                                                      any,
+                                                      string | React.JSXElementConstructor<any>
+                                                  >
+                                                | React.ReactFragment
+                                                | React.ReactPortal
+                                                | null
+                                                | undefined;
+                                        }) => (
+                                            <Select.Option key={item.id} value={item.id}>
+                                                {item.name}
+                                            </Select.Option>
+                                        ),
+                                    )}
                                 </Select>
                             )}
                         </Form.Item>
                         {!edit ? (
-                            <Form.Item name="Select Vineyard" label="Edit the info">
+                            <Form.Item name="Select Vineyard" label="Edit">
                                 <Button onClick={handleEdit}>Edit</Button>
                             </Form.Item>
                         ) : (
@@ -231,34 +247,45 @@ const EditAreaMap: React.FC = () => {
                                 >
                                     <Input placeholder="code" />
                                 </Form.Item>
-                                {geometry.coordinates[0].map((coordinatePair, index) => (
-                                    <div key={index}>
-                                        <Form.Item label={`Latitude ${index + 1}`}>
-                                            <Input
-                                                value={coordinatePair[0]}
-                                                onChange={(e) =>
-                                                    handleCoordinateChange(
-                                                        index,
-                                                        0,
-                                                        parseFloat(e.target.value) || 0,
-                                                    )
-                                                }
-                                            />
-                                        </Form.Item>
-                                        <Form.Item label={`Longitude ${index + 1}`}>
-                                            <Input
-                                                value={coordinatePair[1]}
-                                                onChange={(e) =>
-                                                    handleCoordinateChange(
-                                                        index,
-                                                        1,
-                                                        parseFloat(e.target.value) || 0,
-                                                    )
-                                                }
-                                            />
-                                        </Form.Item>
-                                    </div>
-                                ))}
+                                {geometry.coordinates[0].map(
+                                    (
+                                        coordinatePair: (
+                                            | string
+                                            | number
+                                            | readonly string[]
+                                            | undefined
+                                        )[],
+                                        index: number,
+                                    ) => (
+                                        // eslint-disable-next-line react/no-array-index-key
+                                        <div key={index}>
+                                            <Form.Item label={`Latitude ${index + 1}`}>
+                                                <Input
+                                                    value={coordinatePair[0]}
+                                                    onChange={(e) =>
+                                                        handleCoordinateChange(
+                                                            index,
+                                                            0,
+                                                            parseFloat(e.target.value) || 0,
+                                                        )
+                                                    }
+                                                />
+                                            </Form.Item>
+                                            <Form.Item label={`Longitude ${index + 1}`}>
+                                                <Input
+                                                    value={coordinatePair[1]}
+                                                    onChange={(e) =>
+                                                        handleCoordinateChange(
+                                                            index,
+                                                            1,
+                                                            parseFloat(e.target.value) || 0,
+                                                        )
+                                                    }
+                                                />
+                                            </Form.Item>
+                                        </div>
+                                    ),
+                                )}
                             </>
                         )}
                         {edit ? (
@@ -276,28 +303,7 @@ const EditAreaMap: React.FC = () => {
                 </div>
             )}
 
-            {submitSuccess && (
-                <Result
-                    icon={<SmileFilled rev={undefined} style={{ color: 'purple' }} />}
-                    className="tw-z-50 tw-fixed tw-left-1/4 tw-top-1/4 tw-w-1/2 tw-bg-customPurple/80"
-                    status="success"
-                    title="Successfully Submited"
-                    extra={[
-                        <>
-                            <Button>
-                                <a target="_self" href="/maps">
-                                    See the areas
-                                </a>
-                            </Button>
-                            <Button>
-                                <a target="_self" href="/">
-                                    Home Page
-                                </a>
-                            </Button>
-                        </>,
-                    ]}
-                />
-            )}
+            {submitSuccess && <ResultContainer />}
         </>
     );
 };
