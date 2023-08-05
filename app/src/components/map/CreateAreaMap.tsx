@@ -7,12 +7,36 @@ import { createArea } from '@/server/api/apis';
 
 import ResultContainer from '../pages/components/Result';
 
+const formItemLayout = {
+    labelCol: {
+        xs: {
+            span: 24,
+        },
+        sm: {
+            span: 5,
+        },
+    },
+    wrapperCol: {
+        xs: {
+            span: 24,
+        },
+        sm: {
+            span: 16,
+        },
+    },
+};
 const AreaMap: React.FC = () => {
     const [geometry, setGeometry] = useState<any>([]);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [isFormVisible, setIsFormVisible] = useState(true);
     const toggleFormVisibility = () => {
         setIsFormVisible((prevValue) => !prevValue);
+    };
+    const handleDeleteCoordinate = (index) => {
+        // Create a new array with the selected coordinate pair removed
+        const newGeometry = geometry.filter((_, i) => i !== index);
+        // Update the state with the new array
+        setGeometry(newGeometry);
     };
     const handleSubmit = async (values: any) => {
         const { name, code } = values;
@@ -106,7 +130,7 @@ const AreaMap: React.FC = () => {
                     id="form"
                     className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-44 md:tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
                 >
-                    <Form onFinish={handleSubmit}>
+                    <Form {...formItemLayout} onFinish={handleSubmit}>
                         <Form.Item
                             key="name"
                             name="name"
@@ -141,6 +165,47 @@ const AreaMap: React.FC = () => {
                         >
                             <Input placeholder="Area Code" />
                         </Form.Item>
+                        {geometry &&
+                            geometry.map((coordinatePair, index) => (
+                                <div key={index}>
+                                    <Form.Item label={`Latitude ${index + 1}`}>
+                                        <Input
+                                            value={coordinatePair[0]}
+                                            onChange={(e) =>
+                                                handleCoordinateChange(
+                                                    index,
+                                                    0,
+                                                    parseFloat(e.target.value) || 0,
+                                                )
+                                            }
+                                        />
+                                    </Form.Item>
+                                    <Form.Item label={`Longitude ${index + 1}`}>
+                                        <Input
+                                            value={coordinatePair[1]}
+                                            onChange={(e) =>
+                                                handleCoordinateChange(
+                                                    index,
+                                                    1,
+                                                    parseFloat(e.target.value) || 0,
+                                                )
+                                            }
+                                        />
+                                    </Form.Item>
+                                    <Form.Item
+                                        key="deleteButton"
+                                        name="deleteButton"
+                                        label="Delete"
+                                    >
+                                        <Button
+                                            id="button"
+                                            onClick={() => handleDeleteCoordinate(index)}
+                                        >
+                                            Delete This Point
+                                        </Button>
+                                    </Form.Item>
+                                </div>
+                            ))}
                         <Form.Item label="Submit">
                             <Button key="submit" htmlType="submit">
                                 Submit

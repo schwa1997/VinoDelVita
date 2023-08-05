@@ -43,7 +43,7 @@ export class VineyardEntity extends BaseEntity {
     yearofplanning: string;
 
     @Expose()
-    @Column('geometry', { spatialFeatureType: 'Geometry', srid: 4326 })
+    @Column('geometry', { spatialFeatureType: 'Geometry', srid: 4326, nullable: false })
     geometry: string;
 
     @Expose()

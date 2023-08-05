@@ -17,6 +17,17 @@ const VineyardMap: React.FC = () => {
     const toggleFormVisibility = () => {
         setIsFormVisible((prevValue) => !prevValue);
     };
+    const handleCoordinateChange = (index: number, subIndex: number, value: number) => {
+        const updatedCoordinates = [...geometry.coordinates];
+        updatedCoordinates[0][index][subIndex] = value;
+        setGeometry({ ...geometry, coordinates: updatedCoordinates });
+    };
+    const handleDeleteCoordinate = (index) => {
+        // Create a new array with the selected coordinate pair removed
+        const newGeometry = geometry.filter((_, i) => i !== index);
+        // Update the state with the new array
+        setGeometry(newGeometry);
+    };
     const handleSelect = (value: string) => {
         setSelectedArea(areas.find((item: { id: string }) => item.id === value));
         const selected = areas.find((item: { id: string }) => item.id === value);
@@ -28,26 +39,29 @@ const VineyardMap: React.FC = () => {
     };
     const handleSubmit = async (values: any) => {
         const { name, winetype, areanumber, yearofplanning, area } = values;
-        const geoJsonPolygon = {
-            type: 'Polygon',
-            coordinates: [geometry],
-        };
-        const data = {
-            geometry: geoJsonPolygon,
-        };
-        try {
-            const response = await postVineyard(
-                name,
-                winetype,
-                areanumber,
-                yearofplanning,
-                area,
-                data.geometry,
-            );
-            console.log('Response:', response);
-            setSubmitSuccess(true);
-        } catch (error) {
-            console.error('Failed to submit vineyard:', error);
+        console.log(geometry);
+        if (geometry) {
+            const geoJsonPolygon = {
+                type: 'Polygon',
+                coordinates: [geometry],
+            };
+            const data = {
+                geometry: geoJsonPolygon,
+            };
+            try {
+                const response = await postVineyard(
+                    name,
+                    winetype,
+                    areanumber,
+                    yearofplanning,
+                    area,
+                    data.geometry,
+                );
+                console.log('Response:', response);
+                setSubmitSuccess(true);
+            } catch (error) {
+                console.error('Failed to submit vineyard:', error);
+            }
         }
     };
     const formItemLayout = {
@@ -318,6 +332,47 @@ const VineyardMap: React.FC = () => {
                         >
                             <Input placeholder="Vineyard Year Of Planning" />
                         </Form.Item>
+                        {geometry &&
+                            geometry.map((coordinatePair, index) => (
+                                <div key={index}>
+                                    <Form.Item label={`Latitude ${index + 1}`}>
+                                        <Input
+                                            value={coordinatePair[0]}
+                                            onChange={(e) =>
+                                                handleCoordinateChange(
+                                                    index,
+                                                    0,
+                                                    parseFloat(e.target.value) || 0,
+                                                )
+                                            }
+                                        />
+                                    </Form.Item>
+                                    <Form.Item label={`Longitude ${index + 1}`}>
+                                        <Input
+                                            value={coordinatePair[1]}
+                                            onChange={(e) =>
+                                                handleCoordinateChange(
+                                                    index,
+                                                    1,
+                                                    parseFloat(e.target.value) || 0,
+                                                )
+                                            }
+                                        />
+                                    </Form.Item>
+                                    <Form.Item
+                                        key="deleteButton"
+                                        name="deleteButton"
+                                        label="Delete"
+                                    >
+                                        <Button
+                                            id="button"
+                                            onClick={() => handleDeleteCoordinate(index)}
+                                        >
+                                            Delete This Point
+                                        </Button>
+                                    </Form.Item>
+                                </div>
+                            ))}
                         <Form.Item label="Submit">
                             <Button key="submit" htmlType="submit">
                                 Submit
