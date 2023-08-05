@@ -1,0 +1,84 @@
+\subsection{REST API DETAILS}
+
+In WorkFlix web application project, we have implemented several apis using servlet and REST. In this section, two apis, as examples, are explained with details.
+
+
+\noindent\textbf{Users}\\
+The following endpoint allows to register a new user.
+
+\begin{itemize}
+    \item URL: \texttt{user/register}
+    \item Method: \texttt{POST}
+    \item URL Parameters: No parameters are required in the url
+    \item Data Parameters:
+    
+    Required:
+    
+    \begin{itemize}
+        \item \texttt{username = \{string\}}
+        \item \texttt{password = \{string\}}
+        \item \texttt{email = \{string\}}
+        \item \texttt{first\_name = \{string\}}
+        \item \texttt{last\_name = \{string\}}
+        \item \texttt{profile\_picture=\{string\}}
+        \item \texttt{description \{string\}}
+        \item \texttt{create\_date =\{string\}}
+    \end{itemize}
+    
+    
+    \item Success Response:\\
+    
+    Code: 200\\
+    Content: the user is redirected to the login page, which in turns uses a filter to create a session for the user and redirect them to the homepage.\\
+
+    \item Error Response:\\
+    
+    Code: 409 CONFLICT\\
+    Content: \texttt{\{``error'': \{``code'': -101, ``message'' : ``User already exists.''\}}\\
+    When: the user is trying to register with a user already present in the database.\\
+
+    Code: 500 INTERNAL\_SERVER\_ERROR\\
+    Content: \texttt{\{``error'': \{``code'': -999, ``message'' : ``Internal Error.''\}}\\
+    When: if there is a \texttt{SQLException} or a \texttt{NamingException}, this error is return.\\
+    
+\end{itemize}
+
+
+\noindent\textbf{Template}\\
+The following endpoint allows to create a template.
+
+\begin{itemize}
+    \item URL: \texttt{template/create}
+    \item Method: \texttt{POST}
+    \item URL Parameters: none
+    \item Data Parameters:
+    
+    Required:
+    
+    \begin{itemize}
+        \item \texttt{image\_url = \{string\}}
+        \item \texttt{template\_name = \{string\}}
+    \end{itemize}
+    
+    
+    \item Success Response:\\
+    
+    Code: 201 CREATED\\
+    Content: \texttt{\{``error'': \{``code'': 0, ``message'' : ``Template inserted correctly''\}}\\
+    \item Error Response:\\
+
+    Code: 400 BAD\_REQUEST\\
+    Content: \texttt{\{``error'': \{``code'': -101, ``message'' : ``Template information missing.''\}}\\
+    When: the user is trying to add a new template but the request parameter is missing.\\
+
+    Code: 409 CONFLICT\\
+    Content: \texttt{\{``error'': \{``code'': -101, ``message'' : ``Template name already exists.''\}}\\
+    When: the template name is alsready used in the database.\\
+
+    Code: 500 INTERNAL\_SERVER\_ERROR\\
+    Content: \texttt{\{``error'': \{``code'': -999, ``message'' : ``Internal Error.''\}}\\
+    When: if there is a \texttt{SQLException} or a \texttt{NamingException}, this error is return.\\
+    
+\end{itemize}
+
+

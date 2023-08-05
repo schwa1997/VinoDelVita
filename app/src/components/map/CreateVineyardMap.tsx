@@ -19,8 +19,10 @@ const VineyardMap: React.FC = () => {
     };
     const handleSelect = (value: string) => {
         setSelectedArea(areas.find((item: { id: string }) => item.id === value));
+        const selected = areas.find((item: { id: string }) => item.id === value);
         console.log(
             'selected area',
+            selected.vineyards.length,
             areas.find((item: { id: string }) => item.id === value),
         );
     };
@@ -195,63 +197,7 @@ const VineyardMap: React.FC = () => {
                         scrollToFirstError
                         onFinish={handleSubmit}
                     >
-                        <Form.Item
-                            key="name"
-                            name="name"
-                            label="Name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please enter the Vineyard Name',
-                                },
-                                {
-                                    type: 'string',
-                                    message: 'Please enter a valid string',
-                                },
-                            ]}
-                        >
-                            <Input placeholder="Vineyard Name" />
-                        </Form.Item>
-                        <Form.Item
-                            key="winetype"
-                            name="winetype"
-                            label="Wine Type"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please enter the Vineyard Name',
-                                },
-                                {
-                                    type: 'string',
-                                    message: 'Please enter a valid string',
-                                },
-                            ]}
-                        >
-                            <Select defaultActiveFirstOption>
-                                <Select.Option value="Red Wine">Red Wine</Select.Option>
-                                <Select.Option value="White Wine">White Wine</Select.Option>
-                                <Select.Option value="Rosé Wine">Rosé Wine</Select.Option>
-                                <Select.Option value="Sparkling Wine">Sparkling Wine</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            key="areanumber"
-                            name="areanumber"
-                            label="Area Order"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please enter the Vineyard Name',
-                                },
-                                {
-                                    type: 'string',
-                                    message: 'Please enter a valid string',
-                                },
-                            ]}
-                        >
-                            <Input placeholder="Vineyard Area Order" />
-                        </Form.Item>
-
+                        {' '}
                         <Form.Item
                             key="area"
                             name="area"
@@ -295,8 +241,66 @@ const VineyardMap: React.FC = () => {
                                     )}
                                 </Select>
                             )}
+                        </Form.Item>{' '}
+                        {selectedArea && (
+                            <Form.Item
+                                key="areanumber"
+                                name="areanumber"
+                                label="Area Order"
+                                initialValue={selectedArea.vineyards.length + 1}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please enter the Vineyard Name',
+                                    },
+                                    {
+                                        type: 'number',
+                                        message: 'Please enter a valid string',
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Vineyard Area Order" />
+                            </Form.Item>
+                        )}
+                        <Form.Item
+                            key="name"
+                            name="name"
+                            label="Name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please enter the Vineyard Name',
+                                },
+                                {
+                                    type: 'string',
+                                    message: 'Please enter a valid string',
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Vineyard Name" />
                         </Form.Item>
-
+                        <Form.Item
+                            key="winetype"
+                            name="winetype"
+                            label="Wine Type"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please enter the Vineyard Name',
+                                },
+                                {
+                                    type: 'string',
+                                    message: 'Please enter a valid string',
+                                },
+                            ]}
+                        >
+                            <Select defaultActiveFirstOption>
+                                <Select.Option value="Red Wine">Red Wine</Select.Option>
+                                <Select.Option value="White Wine">White Wine</Select.Option>
+                                <Select.Option value="Rosé Wine">Rosé Wine</Select.Option>
+                                <Select.Option value="Sparkling Wine">Sparkling Wine</Select.Option>
+                            </Select>
+                        </Form.Item>
                         <Form.Item
                             key="yearofplanning"
                             name="yearofplanning"

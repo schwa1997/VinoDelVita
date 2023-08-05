@@ -1,0 +1,34 @@
+\subsection{REST Error Codes}
+
+Here the list of errors defined in the application. Application specific errors have the application error which follows a progressive numeration starting from -100. METHOD NOT ALLOWED errors are identified with the error code -500. Internal errors, which correspond to crashes, servlet exceptions, or problems with the input/output streams are identified with the Error Code -999.
+
+\begin{longtable}{|p{.15\columnwidth}|p{.3\columnwidth} |p{.5\columnwidth}|} 
+\hline
+\textbf{Error Code} & \textbf{HTTP Status Code} & \textbf{Description} \\\hline
+-  0  & OK                       & Indicates that the request has succeeded. \\ \hline
+-100  & NOT\_FOUND               & User not found\\ \hline
+-101  & CONFLICT                 & User already exists.. \\ \hline
+-102  & Unauthorized             & User not authorized. \\ \hline
+-103  & NOT\_FOUND               & Template not found.\\ \hline
+-104  & BAD\_REQUEST             & Template information missing upon making a request. \\ \hline
+-105  & CONFLICT                 & Template already exists.. \\ \hline
+-106  & NOT\_FOUND               & Analytics not found.\\ \hline
+-107  & NOT\_FOUND               & Workspace not found.\\ \hline
+-108  & NOT\_FOUND               & Assignee not found.\\ \hline
+-109  & NOT\_FOUND               & Comment not found.\\ \hline
+-110  & NOT\_FOUND               & Activity not found.\\ \hline
+-111  & NOT\_FOUND               & Board not found.\\ \hline
+-112  & NOT\_FOUND               & SubBoard not found.\\ \hline
+-200  & Created                  & Indicates that the request has succeeded and a new template has been created as a result. \\ \hline
+-201  & Created                  & Indicates that the request has succeeded and a new user has been created as a result. \\ \hline
+-202  & Created                  & Indicates that the request has succeeded and a new workspace has been created as a result. \\ \hline
+-203  & Created                  & Indicates that the request has succeeded and a board has been created as a result. \\ \hline
+-204  & Created                  & Indicates that the request has succeeded and a comment has been created as a result. \\ \hline
+-999  & Internal\_Server\_Error  & The server encountered an unexpected condition that prevented it from fulfilling the request. \\ \hline
+-1000 & METHOD\_NOT\_ALLOWED     & Method not allowed. \\ \hline
+-1002 & BAD\_REQUEST             & Wrong REST format. \\ \hline
+-1004 & BAD\_REQUEST             & Operation unknown. \\ \hline
+
+\caption{Error codes for the REST interface of the Amusement Park application back-end}
+\label{tab:termGlossary}
+\end{longtable}

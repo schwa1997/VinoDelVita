@@ -120,9 +120,6 @@ export class CreateVineyardDto {
     @IsOptional({ groups: ['update'] })
     winetype?: string;
 
-    @IsNotEmpty({ groups: ['create', 'update'], message: 'AreaOrder' })
-    areanumber?: string;
-
     @IsOptional({ always: true })
     execution: string;
 

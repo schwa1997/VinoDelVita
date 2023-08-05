@@ -91,7 +91,10 @@ const DisplayVineyards: React.FC = () => {
             <div className="tw-flex tw-flex-col tw-fixed tw-top-32 tw-left-4 tw-gap-6">
                 {vineyards && (
                     <>
-                        <Form className="tw-flex-auto tw-bg-violet-300/70 hover:tw-bg-violet-300 tw-p-4 tw-rounded-md tw-shadow-md">
+                        <Form
+                            id="form"
+                            className="tw-flex-auto tw-bg-violet-300/70 hover:tw-bg-violet-300 tw-p-4 tw-rounded-md tw-shadow-md"
+                        >
                             <Form.Item
                                 name="DiseaseType"
                                 label="Select Disease Type"

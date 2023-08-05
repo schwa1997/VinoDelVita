@@ -1,0 +1,59 @@
+\subsection{REST API Summary}
+
+The rest API is studied to experiment with multiple different approaches to the REST paradigm. More in detail, endpoints associated with rides and devices are developed in a more traditional way, with the entirety of the information needed to satisfy the request directly in the URI.
+Other endpoints require additional information (such as the type of operation required) as additional parameters in the request.\\
+
+Part of the URIs are filtered through different filters. M indicates that only users with the role of Manager can access to the endpoint, E indicates that only editors can access the endpoint, A that only administrators can request the specified URI to the server.
+
+
+\begin{longtable}{|p{.335\columnwidth}|p{.1\columnwidth} |p{.39\columnwidth}|p{.1\columnwidth}|} 
+\hline
+\textbf{URI} & \textbf{Method} & \textbf{Description} & \textbf{Filter} \\\hline
+user/login/                        & POST   & Enables passing the web server the credential of a user. If the credentials are correct it provides a JWT token. & U \\ \hline
+user/register/                     & POST   & Enables a user to register for the app. & U \\ \hline
+user/logout/                       & POST   & Logout a user & U \\ \hline
+user/delete/{userid}               & DELETE & Enables an authenticated user to delete his account. Login information should be given again before proceeding to the deletion. & U \\ \hline
+user/update/{userid}               & GET    & Enable an authenticated user to update his personal information. & U \\ \hline
+user/update/{userid}/password      & POST   & Enable an authenticated user to update his password & U \\ \hline
+user/{userid}                      & POST   & Get user information & U \\ \hline
+template/get                       & GET    & Get templates to use for a workspace & U \\ \hline
+template/create                    & POST   & Enable an authenticated user to create a new template. & U  \\ \hline
+template/delete/{templateid}       & DELETE & Enable an authenticated user to delete one of his templates. & U  \\ \hline
+template/update/{templateid}       & PUT    & Enable an authenticated user to update one of his templates. & U  \\ \hline
+user/{userid}/workspaces           & GET    & Returns all the workspace in which the authenticated user is connected. & U  \\ \hline
+workspace/{workspaceid}            & GET    & Returns the specific information about a single workspace & U  \\ \hline
+workspace/create/{workspaceid}     & POST   & Enables an authenticated user to create a new workspace. When a user creates a workspace he is the manager of that workspace. & U  \\ \hline
+workspace/delete/{workspaceid}     & DELETE & Allows the manager of a workspace to delete it. & M \\ \hline
+workspace/update/{workspaceid}     & PUT    & Allows the manager of a workspace to update it & M \\ \hline
+workspace/adduser                  & POST   & Enable the manager of a workspace to add someone to a workspace & M \\ \hline
+workspace/removeuser               & DELETE & Enable the manager of a workspace to remove someone from the workspace & M \\ \hline
+workspace/assignuserpermission     & POST   & Enable the manager of a workspace to assign different kinds of permissions to a user in a workspace & U \\ \hline
+board/{boardid}                    & GET    & Returns all the information related to a board & M \\ \hline
+workspace/{workspaceid}/boards     & GET    & Returns all the boards related to a workspace & M \\ \hline
+board/create                       & POST   & Allows manager and editor of a workspace to create a board & E \\ \hline
+board/delete/{boardid}             & DELETE & Allows to pass to the ws of a usnd their mail and password correspond. & E \\ \hline
+board/update/{boardid}             & PUT    & Allows manager and editor of a workspace to edit a board by \{board id\} & E \\ \hline
+subboard/{subboardid}              & GET    & Allows manager and editor of a workspace to delete a board by \{board id\}  & U \\ \hline
+board/{boardid}/subboards          & GET    & Returns all subboard data belonging to the current board & U \\ \hline
+subboard/create                    & POST   & Allows to create a new subboard & E \\ \hline
+subboard/delete/{subboardid}       & DELETE & Allows to delete the subboard by its \{subboard id\} & E \\ \hline
+subboard/update/{subboardid}       & PUT    & Allows to update the subboard by its \{subboard id\}& U \\ \hline
+subboard/{subboardid}/activities   & GET    & Returns all activitydata belonging to the current subboard with the \{subboard id\}  & U \\ \hline
+activity/{activityid}              & GET    & Returns all subboard data by its  \{activity id\} & U \\ \hline
+activity/create                    & POST   & Allows to create a new activity & U \\ \hline
+activity/delete/{activityid}       & DELETE & Allows to delete the activityby its \{activity id\} & U \\ \hline
+activity/update/{activityid}       & PUT    & Allows to update the activityby its \{activity id\}  & U \\ \hline
+activity/assignee/get              & GET    & Returns the assignee data of the current activity & U \\ \hline
+activity/assignee/add              & PUT    & Allows to insert new assignee of the current activity & U \\ \hline
+activity/assignee/remove           & POST   & Allows to delete assignee of the current activity & U \\ \hline
+activity/comment/get               & GET    & Returns comment  & U \\ \hline
+activity/comment/create            & PUT    & Allows to create new comment & U \\ \hline
+activity/comment/delete/{commentid}& DELETE & Allows to insert comment by its \{comment id\} & U \\ \hline
+activity/comment/update/{commentid}& PUT    & Allows to update comment by its \{comment id\}  & U \\ \hline
+analytics/get                      & GET    & Returns analytics data. & M \\ \hline
+\caption{Main REST API entrypoints}
+
+
+
+\label{tab:termGlossary}
+\end{longtable}

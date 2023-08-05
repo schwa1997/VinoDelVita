@@ -1,0 +1,734 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.14)  5 AUG 2023 01:29
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**e:/01-SDE/8-Unipd2023/2023-GIS/github/GIS2023/ProjectReport/main.tex
+(e:/01-SDE/8-Unipd2023/2023-GIS/github/GIS2023/ProjectReport/main.tex
+LaTeX2e <2022-06-01> patch level 5
+L3 programming layer <2022-09-28> (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+) (local_macros.tex (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count193
+\Gm@cntv=\count194
+\c@Gm@tempcnt=\count195
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks19
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box51
+\beforetitleunit=\skip49
+\aftertitleunit=\skip50
+\ttl@plus=\dimen147
+\ttl@minus=\dimen148
+\ttl@toksa=\toks20
+\titlewidth=\dimen149
+\titlewidthlast=\dimen150
+\titlewidthfirst=\dimen151
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+\stockwidth=\dimen152
+\stockheight=\dimen153
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip51
+\LTright=\skip52
+\LTpre=\skip53
+\LTpost=\skip54
+\LTchunksize=\count196
+\LTcapwidth=\dimen154
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@gbox=\box56
+\LT@cols=\count197
+\LT@rows=\count198
+\c@LT@tables=\count199
+\c@LT@chunks=\count266
+\LT@p@ftn=\toks21
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen155
+\Gin@req@width=\dimen156
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/advdate\advdate.sty
+Package: advdate 1996/10/20 Advance Date Package
+\r@k=\count267
+\un@r=\count268
+\m@l=\count269
+\m@s=\count270
+\M@s=\count271
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\cmbright.sty
+Package: cmbright 2005/04/13 v8.1 (WaS)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmbrm/m/it --> OML/cmbrm/b/it on input line 31.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \alpha on input line 37.
+LaTeX Font Info:    Redeclaring math symbol \beta on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \gamma on input line 39.
+LaTeX Font Info:    Redeclaring math symbol \delta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \zeta on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \eta on input line 43.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 44.
+LaTeX Font Info:    Redeclaring math symbol \iota on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \kappa on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \lambda on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \mu on input line 48.
+LaTeX Font Info:    Redeclaring math symbol \nu on input line 49.
+LaTeX Font Info:    Redeclaring math symbol \xi on input line 50.
+LaTeX Font Info:    Redeclaring math symbol \pi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \sigma on input line 53.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 55.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \psi on input line 58.
+LaTeX Font Info:    Redeclaring math symbol \omega on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \varpi on input line 62.
+LaTeX Font Info:    Redeclaring math symbol \varrho on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 64.
+LaTeX Font Info:    Redeclaring math symbol \varphi on input line 65.
+LaTeX Info: Redefining \LaTeX on input line 129.
+LaTeX Info: Redefining \LaTeXe on input line 139.
+LaTeX Font Info:    Trying to load font information for OT1+cmbr on input line 144.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ot1cmbr.fd
+File: ot1cmbr.fd 2005/04/13 v8.1 (WaS)
+)) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen157
+\ar@mcellbox=\box57
+\extrarowheight=\dimen158
+\NC@list=\toks22
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box58
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen159
+\c@nlinenum=\count272
+\TeXr@lab=\toks23
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/sectsty\sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
+
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footers
+\f@nch@headwidth=\skip57
+\f@nch@O@elh=\skip58
+\f@nch@O@erh=\skip59
+\f@nch@O@olh=\skip60
+\f@nch@O@orh=\skip61
+\f@nch@O@elf=\skip62
+\f@nch@O@erf=\skip63
+\f@nch@O@olf=\skip64
+\f@nch@O@orf=\skip65
+)) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count273
+\l__pdf_internal_box=\box59
+) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 652.70622pt, 71.13188pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=472.03123pt
+* \textheight=572.70622pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=80.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count274
+\scratchdimen=\dimen160
+\scratchbox=\box60
+\nofMPsegments=\count275
+\nofMParguments=\count276
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count277
+\MPscratchDim=\dimen161
+\MPnumerator=\count278
+\makeMPintoPDFobject=\count279
+\everyMPtoPDFconversion=\toks25
+) (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 8.
+
+e:/01-SDE/8-Unipd2023/2023-GIS/github/GIS2023/ProjectReport/main.tex:8: Undefined control sequence.
+\maketitle ... \vspace {\baselineskip } \deadline 
+                                                  {28 April} \vspace {30mm} ...
+l.8 \maketitle
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+(groupdata.tex
+LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line 4.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\omlcmbrm.fd
+File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line 4.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\omscmbrs.fd
+File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
+<logos/logo_800anni.png, id=1, 803.0pt x 228.855pt>
+File: logos/logo_800anni.png Graphic file (type png)
+<use logos/logo_800anni.png>
+Package pdftex.def Info: logos/logo_800anni.png  used on input line 8.
+(pdftex.def)             Requested size: 236.01561pt x 67.2637pt.
+<logos/DEI.png, id=3, 89.6148pt x 54.6843pt>
+File: logos/DEI.png Graphic file (type png)
+<use logos/DEI.png>
+Package pdftex.def Info: logos/DEI.png  used on input line 8.
+(pdftex.def)             Requested size: 94.4048pt x 57.61043pt.
+ [1
+
+{C:/Users/14369/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logos/logo_800anni.png> <./logos/DEI.png>] (sections/Objectives.tex
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 2.
+) (sections/MainFunctionalities.tex
+LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 11.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ts1cmbr.fd
+File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 48.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 48.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 51--12
+
+ []
+
+[3] (sections/PresentationLogicLayer.tex (sections/PLL/LandingPage.tex
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <12> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--11
+
+ []
+
+<images/LandingPage.png, id=22, 369.25453pt x 207.02344pt>
+File: images/LandingPage.png Graphic file (type png)
+<use images/LandingPage.png>
+Package pdftex.def Info: images/LandingPage.png  used on input line 13.
+(pdftex.def)             Requested size: 472.03123pt x 264.64792pt.
+) (sections/PLL/BoardPage.tex
+Overfull \hbox (15.0pt too wide) in paragraph at lines 13--1
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--1
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+<images/Board.jpg, id=27, 1927.2pt x 1084.05pt>
+File: images/Board.jpg Graphic file (type jpg)
+<use images/Board.jpg>
+Package pdftex.def Info: images/Board.jpg  used on input line 18.
+(pdftex.def)             Requested size: 472.03123pt x 265.5036pt.
+) (sections/PLL/TemplatePage.tex [5 <./images/LandingPage.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+<images/template.jpg, id=31, 813.0375pt x 813.0375pt>
+File: images/template.jpg Graphic file (type jpg)
+<use images/template.jpg>
+Package pdftex.def Info: images/template.jpg  used on input line 10.
+(pdftex.def)             Requested size: 377.62642pt x 377.62433pt.
+) (sections/PLL/UserSetting.tex [6 <./images/Board.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+[7 <./images/template.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+<images/UserSetting.jpg, id=39, 2569.6pt x 1130.2225pt>
+File: images/UserSetting.jpg Graphic file (type jpg)
+<use images/UserSetting.jpg>
+Package pdftex.def Info: images/UserSetting.jpg  used on input line 14.
+(pdftex.def)             Requested size: 472.03123pt x 207.60475pt.
+) (sections/PLL/Workspace.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+<images/Workspace.jpg, id=40, 1517.67pt x 985.6825pt>
+File: images/Workspace.jpg Graphic file (type jpg)
+<use images/Workspace.jpg>
+Package pdftex.def Info: images/Workspace.jpg  used on input line 11.
+(pdftex.def)             Requested size: 472.03123pt x 306.56612pt.
+) (sections/PLL/SignIn.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--1
+
+ []
+
+[8 <./images/UserSetting.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+<images/SignInLogIn.jpg, id=44, 1053.9375pt x 803.25093pt>
+File: images/SignInLogIn.jpg Graphic file (type jpg)
+<use images/SignInLogIn.jpg>
+Package pdftex.def Info: images/SignInLogIn.jpg  used on input line 10.
+(pdftex.def)             Requested size: 472.03123pt x 359.7559pt.
+) (sections/PLL/Analytics.tex [9 <./images/Workspace.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+<images/Analytics.png, id=48, 1927.2pt x 1531.7225pt>
+File: images/Analytics.png Graphic file (type png)
+<use images/Analytics.png>
+Package pdftex.def Info: images/Analytics.png  used on input line 10.
+(pdftex.def)             Requested size: 472.03123pt x 375.14674pt.
+))
+Overfull \hbox (15.0pt too wide) in paragraph at lines 10--15
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+
+ []
+
+[10 <./images/SignInLogIn.jpg>] [11 <./images/Analytics.png>] (sections/DataLogicLayer.tex (sections/DLL/ERSchema.tex
+<images/ER-schma.png, id=57, 845.1575pt x 992.70876pt>
+File: images/ER-schma.png Graphic file (type png)
+<use images/ER-schma.png>
+Package pdftex.def Info: images/ER-schma.png  used on input line 3.
+(pdftex.def)             Requested size: 472.03123pt x 554.45897pt.
+ [12]
+Overfull \vbox (26.83609pt too high) has occurred while \output is active []
+
+ [13 <./images/ER-schma.png>])) [14] (sections/BusinessLogicLayer.tex (sections/BLL/ClassDiagram.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+<images/class sequence.jpg, id=69, 963.6pt x 542.025pt>
+File: images/class sequence.jpg Graphic file (type jpg)
+<use images/class sequence.jpg>
+Package pdftex.def Info: images/class sequence.jpg  used on input line 9.
+(pdftex.def)             Requested size: 613.64204pt x 345.18279pt.
+
+Overfull \hbox (141.61081pt too wide) in paragraph at lines 8--10
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+
+ []
+
+[15]
+<images/RestDispatcherServlet_processUser.jpg, id=73, 1260.96094pt x 3484.76906pt>
+File: images/RestDispatcherServlet_processUser.jpg Graphic file (type jpg)
+<use images/RestDispatcherServlet_processUser.jpg>
+Package pdftex.def Info: images/RestDispatcherServlet_processUser.jpg  used on input line 12.
+(pdftex.def)             Requested size: 236.01561pt x 652.2228pt.
+) (sections/BLL/RESTAPISummary.tex [16 <./images/class sequence.jpg>]
+Overfull \vbox (124.59991pt too high) has occurred while \output is active []
+
+ [17 <./images/RestDispatcherServlet_processUser.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 32--32
+[]|\OT1/cmbr/m/n/10 Returns all the boards re-lated to a
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmbr on input line 35.
+(C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\omscmbr.fd
+File: omscmbr.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Font shape `OMS/cmbr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmbrs/m/n' tried instead on input line 35.
+
+Underfull \hbox (badness 3158) in paragraph at lines 39--39
+[]|\OT1/cmbr/m/n/10 Allows to delete the sub-board by its
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 40--40
+[]|\OT1/cmbr/m/n/10 Allows to up-date the sub-board by its
+ []
+
+
+Overfull \hbox (3.8649pt too wide) in paragraph at lines 52--52
+[]|\OT1/cmbr/m/n/10 activity/comment/update/commentid| 
+ []
+
+
+Overfull \hbox (14.60623pt too wide) in alignment at lines 9--59
+ [] [] [] [] 
+ []
+
+[18] [19]) (sections/BLL/RESTErrorCodes.tex
+Overfull \hbox (13.99696pt too wide) in alignment at lines 5--34
+ [] [] [] 
+ []
+
+[20]) (sections/BLL/RESTAPIDetails.tex
+LaTeX Font Info:    Trying to load font information for OT1+cmtl on input line 10.
+ (C:\Users\14369\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ot1cmtl.fd
+File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Trying to load font information for OMS+cmtl on input line 18.
+LaTeX Font Info:    No file OMScmtl.fd. on input line 18.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtl/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 18.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 40--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Overfull \hbox (13.55243pt too wide) in paragraph at lines 70--73
+\OT1/cmbr/m/n/10 Content: \OMS/cmtl/m/n/10 f\OT1/cmtl/m/n/10 ``error'': \OMS/cmtl/m/n/10 f\OT1/cmtl/m/n/10 ``code'': -101, ``message'' : ``Template information missing.''\OMS/cmtl/m/n/10 g 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--73
+
+ []
+
+
+Overfull \hbox (13.55243pt too wide) in paragraph at lines 74--77
+\OT1/cmbr/m/n/10 Content: \OMS/cmtl/m/n/10 f\OT1/cmtl/m/n/10 ``error'': \OMS/cmtl/m/n/10 f\OT1/cmtl/m/n/10 ``code'': -101, ``message'' : ``Template name already exists.''\OMS/cmtl/m/n/10 g 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+
+ []
+
+)) (sections/Contributions.tex [22]) [23] (main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3750 strings out of 475385
+ 63272 string characters out of 2776906
+ 463506 words of memory out of 3000000
+ 25010 multiletter control sequences out of 15000+600000
+ 476831 words of font info for 53 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,14n,65p,800b,364s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\cmtl10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\cmbrsy10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi720\cmbrbx10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\cmbrmi10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\tbmr10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\cmbrbx10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi600\cmbr10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi720\cmbr10.pk> <C:\Users\14369\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi864\cmbrbx10.pk><C:/Users/14369/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (23 pages, 4540562 bytes).
+PDF statistics:
+ 386 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+

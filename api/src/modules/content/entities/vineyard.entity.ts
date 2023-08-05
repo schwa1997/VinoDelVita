@@ -35,8 +35,8 @@ export class VineyardEntity extends BaseEntity {
     winetype: string;
 
     @Expose()
-    @Column({ comment: 'vineyards AreaOrder', type: 'text', unique: true })
-    areanumber: string;
+    @Column({ comment: 'vineyards AreaOrder', type: 'integer', nullable: false })
+    areanumber: number;
 
     @Expose()
     @Column({ comment: 'vineyards yearOfPlaning', type: 'text' })
