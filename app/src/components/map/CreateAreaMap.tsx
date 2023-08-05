@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { Button, Form, Input } from 'antd';
 
+import { useFormik } from 'formik';
+
 import { createArea } from '@/server/api/apis';
 
 import ResultContainer from '../pages/components/Result';
@@ -10,24 +12,124 @@ import ResultContainer from '../pages/components/Result';
 const formItemLayout = {
     labelCol: {
         xs: {
-            span: 24,
+            span: 8,
         },
         sm: {
-            span: 5,
+            span: 8,
         },
     },
     wrapperCol: {
         xs: {
-            span: 24,
+            span: 16,
         },
         sm: {
             span: 16,
         },
     },
 };
+const NewAreaForm = ({ geometry }) => {
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submissionError, setSubmissionError] = useState(null); // State to handle submission errors
+    const [visible, setVisible] = useState(true);
+    const handleClose = () => {
+        setVisible(false);
+    };
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            code: '',
+            geometry,
+        },
+        onSubmit: async (values) => {
+            // Add 'async' here
+            const { name, code } = values;
+            const geoJsonPolygon = {
+                type: 'Polygon',
+                coordinates: [geometry],
+            };
+            const data = {
+                name,
+                code,
+                geometry: geoJsonPolygon,
+            };
+            if (!values.name || !values.code) {
+                console.error('Missing required fields in data:', values);
+                return;
+            }
+
+            try {
+                const response = await createArea(name, code, data.geometry);
+                console.log('Response:', response);
+                setSubmitSuccess(true);
+            } catch (error) {
+                setSubmissionError(error.message);
+                console.error('Failed to submit area:', error);
+            }
+        },
+    });
+
+    return (
+        <>
+            {!submitSuccess && visible && (
+                <>
+                    <form
+                        id="Container"
+                        className="tw-z-50 tw-fixed md:tw-right-8 tw-top-1/4 tw-right-1/4 tw-transform  tw-bg-gradient-to-b tw-from-violet-300 tw-via-purple-300 tw-to-violet-50 tw-rounded-lg tw-shadow-md tw-p-6 sm:tw-p-8"
+                        onSubmit={formik.handleSubmit}
+                    >
+                        {submissionError && (
+                            <p className="tw-text-red-600 tw-mb-4">{submissionError}</p>
+                        )}
+                        <button
+                            className="tw-absolute tw-top-2 tw-right-2 tw-text-black tw-rounded-full tw-outline-none tw-shadow-md"
+                            onClick={handleClose}
+                        >
+                            X
+                        </button>
+
+                        <div className="tw-mb-4">
+                            <label htmlFor="name" className="tw-block tw-font-bold">
+                                Name
+                            </label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                onChange={formik.handleChange}
+                                value={formik.values.name}
+                                className="tw-w-full tw-px-3 tw-py-2 tw-border tw-rounded"
+                            />
+                        </div>
+                        <div className="tw-mb-4">
+                            <label htmlFor="email" className="tw-block tw-font-bold">
+                                Code
+                            </label>
+                            <input
+                                id="code"
+                                name="code"
+                                type="code"
+                                onChange={formik.handleChange}
+                                value={formik.values.code}
+                                className="tw-w-full tw-px-3 tw-py-2 tw-border tw-rounded"
+                            />
+                        </div>
+                        <button
+                            id="button"
+                            type="submit"
+                            className="tw-bg-customPurple tw-hover:bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-w-full sm:tw-w-auto"
+                        >
+                            Submit
+                        </button>
+                    </form>
+                </>
+            )}
+            {submitSuccess && <ResultContainer />}
+        </>
+    );
+};
+
 const AreaMap: React.FC = () => {
     const [geometry, setGeometry] = useState<any>([]);
-    const [submitSuccess, setSubmitSuccess] = useState(false);
     const [isFormVisible, setIsFormVisible] = useState(true);
     const toggleFormVisibility = () => {
         setIsFormVisible((prevValue) => !prevValue);
@@ -38,31 +140,6 @@ const AreaMap: React.FC = () => {
         // Update the state with the new array
         setGeometry(newGeometry);
     };
-    const handleSubmit = async (values: any) => {
-        const { name, code } = values;
-        const geoJsonPolygon = {
-            type: 'Polygon',
-            coordinates: [geometry],
-        };
-        const data = {
-            name,
-            code,
-            geometry: geoJsonPolygon,
-        };
-        if (!values.name || !values.code) {
-            console.error('Missing required fields in data:', values);
-            return;
-        }
-
-        try {
-            const response = await createArea(name, code, data.geometry);
-            console.log('Response:', response);
-            setSubmitSuccess(true);
-        } catch (error) {
-            console.error('Failed to submit area:', error);
-        }
-    };
-
     useEffect(() => {
         let map: L.Map | null = null;
         let areaPolygon: L.Polygon | null = null;
@@ -121,50 +198,16 @@ const AreaMap: React.FC = () => {
                 className="tw-z-50 tw-fixed tw-bottom-0 tw-left-2 tw-bg-customPurple/60 tw-text-purple-500 tw-rounded-md tw-px-4 tw-pb-2 tw-m-2 hover:tw-bg-customPurple"
                 onClick={toggleFormVisibility}
             >
-                {isFormVisible ? 'Hide Form' : 'Show Form'}
+                {isFormVisible ? 'Hide Geometry Form' : 'Show Geometry Form'}
             </Button>
             <div id="map" className="tw-fixed tw-h-screen tw-w-screen tw-z-0 tw-top-28 tw-left-0" />
-
-            {!submitSuccess && isFormVisible && (
+            <NewAreaForm geometry={geometry} />
+            {isFormVisible && (
                 <div
                     id="form"
                     className="tw-container tw-rounded-xl tw-w-1/3 tw-bg-customPurple/70 hover:tw-bg-customPurple tw-absolute tw-text-white tw-top-44 md:tw-top-32 tw-left-4 tw-pt-10 tw-pl-2 tw-pr-6"
                 >
-                    <Form {...formItemLayout} onFinish={handleSubmit}>
-                        <Form.Item
-                            key="name"
-                            name="name"
-                            label="Name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please enter name',
-                                },
-                                {
-                                    type: 'string',
-                                    message: 'Please enter a valid string',
-                                },
-                            ]}
-                        >
-                            <Input placeholder="Area Name" />
-                        </Form.Item>
-                        <Form.Item
-                            key="code"
-                            name="code"
-                            label="Code"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please enter code',
-                                },
-                                {
-                                    type: 'string',
-                                    message: 'Please enter a valid string',
-                                },
-                            ]}
-                        >
-                            <Input placeholder="Area Code" />
-                        </Form.Item>
+                    <Form {...formItemLayout}>
                         {geometry &&
                             geometry.map((coordinatePair, index) => (
                                 <div key={index}>
@@ -206,15 +249,9 @@ const AreaMap: React.FC = () => {
                                     </Form.Item>
                                 </div>
                             ))}
-                        <Form.Item label="Submit">
-                            <Button key="submit" htmlType="submit">
-                                Submit
-                            </Button>
-                        </Form.Item>
                     </Form>
                 </div>
             )}
-            {submitSuccess && <ResultContainer />}
         </>
     );
 };
